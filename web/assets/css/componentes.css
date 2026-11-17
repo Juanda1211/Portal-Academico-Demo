@@ -1,0 +1,414 @@
+/* ============================================================
+   componentes.css — piezas reutilizadas en todas las vistas:
+   migas, cabecera de página, botones, tarjetas, tablas,
+   insignias, alertas y avisos flotantes.
+   ============================================================ */
+
+/* ---------- Migas de pan ---------- */
+
+.miga {
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+  color: var(--texto-tenue);
+}
+
+.miga__enlace {
+  transition: color var(--transicion);
+}
+
+.miga__enlace:hover {
+  color: var(--marino-claro);
+}
+
+.miga__separador {
+  margin-inline: 0.5rem;
+}
+
+.miga__actual {
+  font-weight: 600;
+  color: var(--marino);
+}
+
+/* ---------- Cabecera de la página ---------- */
+
+.contenido-pagina {
+  padding-block: 2.25rem;
+}
+
+.cabecera-pagina {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  border-bottom: 1px solid var(--borde);
+  padding-bottom: 1.5rem;
+}
+
+.etiqueta-seccion {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--marino-claro);
+}
+
+.titulo-pagina {
+  margin-top: 0.5rem;
+  font-size: 1.875rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--marino);
+}
+
+.descripcion-pagina {
+  margin-top: 0.75rem;
+  max-width: 42rem;
+  color: var(--texto-medio);
+}
+
+.acciones-pagina {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.vista {
+  margin-top: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .cabecera-pagina {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .titulo-pagina {
+    font-size: 2.25rem;
+  }
+}
+
+/* ---------- Botones ---------- */
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: var(--radio);
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.25;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(15, 36, 56, 0.08);
+  transition: background-color var(--transicion), border-color var(--transicion),
+    color var(--transicion), box-shadow var(--transicion), transform var(--transicion);
+}
+
+.boton:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px -8px rgba(15, 36, 56, 0.55);
+}
+
+/* Retroalimentación al presionar: el botón "cede" y pierde la elevación. */
+.boton:active:not(:disabled) {
+  transform: translateY(1px) scale(0.99);
+  box-shadow: none;
+}
+
+.boton:focus-visible {
+  outline: 2px solid var(--marino-claro);
+  outline-offset: 2px;
+}
+
+.boton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.boton--primario {
+  background: var(--acento);
+  color: #ffffff;
+}
+
+.boton--primario:hover:not(:disabled) {
+  background: var(--acento-fuerte);
+}
+
+.boton--secundario {
+  border-color: var(--borde);
+  background: var(--superficie);
+  color: var(--marino);
+}
+
+.boton--secundario:hover:not(:disabled) {
+  background: var(--fondo-alterno);
+}
+
+.boton--peligro {
+  background: #be123c;
+  color: #ffffff;
+}
+
+.boton--peligro:hover:not(:disabled) {
+  background: #9f1239;
+}
+
+.boton--dorado {
+  background: var(--dorado);
+  color: var(--marino);
+}
+
+.boton--dorado:hover {
+  background: #c9a052;
+}
+
+/* ---------- Botón en estado de carga ---------- */
+
+/* comun.js marca con aria-busy el botón que disparó una petición. */
+.btn[aria-busy="true"],
+.boton[aria-busy="true"] {
+  cursor: progress;
+  opacity: 0.85;
+}
+
+.btn[aria-busy="true"]::before,
+.boton[aria-busy="true"]::before {
+  content: "";
+  flex-shrink: 0;
+  width: 0.85em;
+  height: 0.85em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: giro-carga 600ms linear infinite;
+}
+
+@keyframes giro-carga {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- Tarjetas ---------- */
+
+.tarjeta {
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-lg);
+  background: var(--superficie);
+  box-shadow: var(--sombra);
+}
+
+.tarjeta__cabecera {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.tarjeta__icono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radio-lg);
+  background: var(--acento-suave);
+  color: var(--acento);
+  font-size: 1.125rem;
+}
+
+.tarjeta__titulo {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--marino);
+}
+
+.tarjeta__ayuda {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--texto-tenue);
+}
+
+/* ---------- Tablas ---------- */
+
+.tabla-envoltura {
+  overflow-x: auto;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.tabla thead {
+  background: var(--fondo-alterno);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--texto-tenue);
+}
+
+.tabla th,
+.tabla td {
+  padding: 0.75rem 1.25rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.tabla th:last-child,
+.tabla td:last-child {
+  text-align: right;
+}
+
+.tabla tbody tr {
+  transition: background-color var(--transicion);
+}
+
+.tabla tbody tr:hover {
+  background: var(--fondo-alterno);
+}
+
+.tabla tbody tr + tr {
+  border-top: 1px solid #f1f5f9;
+}
+
+.tabla__celda {
+  color: var(--texto-medio);
+}
+
+/* ---------- Insignias de estado ---------- */
+
+.insignia {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.125rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.insignia--activo {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.insignia--inactivo {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+.insignia--neutro {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+/* ---------- Alertas y estados ---------- */
+
+.alerta {
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-lg);
+  background: var(--superficie);
+  padding: 1.5rem;
+  box-shadow: var(--sombra);
+}
+
+.alerta__titulo {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.alerta__texto {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.alerta__boton {
+  margin-top: 1rem;
+}
+
+.alerta--conexion {
+  color: var(--texto-medio);
+}
+
+.alerta--error {
+  border-color: #fecdd3;
+  background: #fff1f2;
+  color: #9f1239;
+}
+
+.cargando {
+  padding: 1.5rem;
+  color: var(--texto-medio);
+}
+
+/* ---------- Estado vacío ---------- */
+
+.vacio {
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+
+.vacio__icono {
+  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+}
+
+.vacio__titulo {
+  font-weight: 700;
+  color: var(--marino);
+}
+
+.vacio__texto {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--texto-tenue);
+}
+
+/* ---------- Enlace de texto ---------- */
+
+.enlace-texto {
+  font-weight: 600;
+  color: var(--marino-claro);
+}
+
+.enlace-texto:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Aviso flotante (toast) ---------- */
+
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  z-index: 50;
+  max-width: 90vw;
+  transform: translateX(-50%);
+  border-radius: var(--radio);
+  background: var(--marino);
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  box-shadow: var(--sombra-alta);
+  animation: toast-entrada 180ms ease-out;
+}
+
+@keyframes toast-entrada {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 0.5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}

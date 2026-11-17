@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Monitorías académicas | Portal Académico</title>
+  <link rel="icon" type="image/png" href="/assets/img/Escudo_unimag_sm.png">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/entidades.css">
+  <link rel="stylesheet" href="/assets/css/estructura.css">
+  <link rel="stylesheet" href="/assets/css/componentes.css">
+  <link rel="stylesheet" href="/assets/css/paginas/formulario.css">
+  <link rel="stylesheet" href="/assets/css/paginas/lista.css">
+  <link rel="stylesheet" href="/assets/css/adaptacion-proyecto-java.css">
+  <!-- Compatibilidad con las clases HTML originales de las vistas CRUD. -->
+  <link rel="stylesheet" href="/assets/css/legacy-theme.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/comun.js" defer></script>
+  <script src="/assets/js/monitorias.js" defer></script>
+</head>
+<body>
+<header class="cabecera">
+  <div class="contenedor cabecera__contenido">
+    <a class="marca" href="index.html"><img class="marca__escudo" src="/assets/img/Escudo_unimag_sm.png" alt="Escudo Universidad del Magdalena"><span><span class="marca__nombre">UNIMAG</span><span class="marca__lema">Portal de Gestión Académica</span></span></a>
+    <div class="cabecera__institucional"><p class="cabecera__institucional-sistema">Sistema institucional</p><p class="cabecera__institucional-titulo">Gestión de información académica</p></div>
+    <button id="boton-menu" type="button" class="boton-menu" aria-label="Abrir menú" aria-controls="navegacion-principal" aria-expanded="false">☰</button>
+  </div>
+  <nav id="navegacion-principal" class="contenedor navegacion">
+      <div class="navegacion__fila">
+        <a class="navegacion__enlace" href="index.html">Inicio</a>
+        <a class="navegacion__enlace" href="facultad.html">Facultades</a>
+        <a class="navegacion__enlace" href="programa.html">Programas</a>
+        <a class="navegacion__enlace" href="estudiantes.html">Estudiantes</a>
+        <a class="navegacion__enlace" href="profesor.html">Profesores</a>
+        <a class="navegacion__enlace" href="materia.html">Materias</a>
+        <a class="navegacion__enlace" href="periodoAcademico.html">Periodos</a>
+      </div>
+      <div class="navegacion__fila">
+        <a class="navegacion__enlace" href="cursoPeriodo.html">Cursos</a>
+        <a class="navegacion__enlace" href="cursoProfesor.html">Asignación docente</a>
+        <a class="navegacion__enlace" href="planEstudio.html">Planes de estudio</a>
+        <a class="navegacion__enlace" href="planMateria.html">Plan y materias</a>
+        <a class="navegacion__enlace" href="inscripciones.html">Inscripciones</a>
+        <a class="navegacion__enlace" href="monitorias.html" aria-current="page">Monitorías</a>
+        <a class="navegacion__enlace" href="formacionProfesor.html">Formación docente</a>
+      </div>
+    </nav><div class="cabecera__filete"></div>
+</header>
+<main class="contenedor-principal">
+  <section class="tarjeta-tabla">
+    <div class="encabezado-tabla"><h2 class="listar-Materias">Monitorías académicas</h2><p class="subtitulo-tabla">Asigna monitores a un curso, evalúa su desempeño y consulta la traza de cada reevaluación.</p></div>
+    <div class="tabla-toolbar">
+      <div class="busqueda-box">
+        <select id="filtroCurso" class="select-filtro" aria-label="Filtrar por curso"><option value="">Todos los cursos</option></select>
+        <select id="filtroEstudiante" class="select-filtro" aria-label="Filtrar por estudiante"><option value="">Todos los estudiantes</option></select>
+        <select id="filtroProfesor" class="select-filtro" aria-label="Filtrar por profesor"><option value="">Todos los profesores</option></select>
+        <button type="button" class="btn btn-buscar" id="btnFiltrar">Filtrar</button>
+        <button type="button" class="btn btn-secundario" id="btnLimpiar">Limpiar</button>
+      </div>
+      <div class="acciones-superiores"><button class="btn btn-primario" type="button" id="btnRegistrar">+ Crear monitoría</button></div>
+      <div class="busqueda-nombre-box">
+        <label class="sr-only" for="buscarPorNombre">Buscar en el listado por nombre</label>
+        <input type="search" id="buscarPorNombre" class="input-busqueda input-busqueda-nombre" placeholder="Buscar por nombre..." autocomplete="off" aria-label="Buscar registros por nombre">
+      </div>
+    </div>
+    <table>
+      <thead><tr><th>Curso</th><th>Monitor</th><th>Profesor</th><th>Estado</th><th>Calificación</th><th>Comentario</th><th>Evaluación</th><th>Acciones</th></tr></thead>
+      <tbody id="cuerpoTablaMonitorias"><tr><td colspan="8" style="text-align:center;padding:20px">Cargando monitorías…</td></tr></tbody>
+    </table>
+  </section>
+</main>
+<div class="modal-overlay" id="modalMonitoria">
+  <div class="modal-contenedor">
+    <div class="modal-header"><h3 id="modalTitulo">Crear monitoría</h3><button type="button" class="btn-cerrar" id="btnCerrarModal" aria-label="Cerrar">&times;</button></div>
+    <form id="formMonitoria">
+      <div id="mensajeError" class="mensaje-error" role="alert"></div>
+      <p class="subtitulo-tabla">El estudiante debe estar inscripto en el curso seleccionado.</p>
+      <div class="campo-group"><label for="cursoMonitoria">Curso por periodo:</label><select id="cursoMonitoria" required><option value="">Seleccione un curso…</option></select></div>
+      <div class="campo-group"><label for="estudianteMonitoria">Estudiante monitor:</label><select id="estudianteMonitoria" required><option value="">Seleccione un estudiante…</option></select></div>
+      <div class="campo-group"><label for="profesorMonitoria">Profesor supervisor:</label><select id="profesorMonitoria" required><option value="">Seleccione un profesor…</option></select></div>
+      <div class="modal-footer"><button type="button" class="btn btn-cancelar" id="btnCancelar">Cancelar</button><button type="submit" class="btn btn-primario" id="btnGuardar">Guardar monitoría</button></div>
+    </form>
+  </div>
+</div>
+<div class="modal-overlay" id="modalEvaluarMonitoria">
+  <div class="modal-contenedor">
+    <div class="modal-header"><h3 id="modalTituloEvaluar">Evaluar monitoría</h3><button type="button" class="btn-cerrar" id="btnCerrarModalEvaluar" aria-label="Cerrar">&times;</button></div>
+    <form id="formEvaluarMonitoria">
+      <div id="mensajeErrorEvaluar" class="mensaje-error" role="alert"></div>
+      <p class="subtitulo-tabla" id="resumenEvaluar"></p>
+      <div class="campo-group"><label for="calificacionMonitoria">Calificación (0 a 5):</label><input type="number" id="calificacionMonitoria" min="0" max="5" step="1" required></div>
+      <div class="campo-group"><label for="comentarioMonitoria">Comentario:</label><textarea id="comentarioMonitoria" rows="3" required></textarea></div>
+      <p class="subtitulo-tabla">Si la monitoría ya fue evaluada, la anterior nota y el comentario previo quedan en la traza.</p>
+      <div class="modal-footer"><button type="button" class="btn btn-cancelar" id="btnCancelarEvaluar">Cancelar</button><button type="submit" class="btn btn-primario" id="btnGuardarEvaluar">Registrar evaluación</button></div>
+    </form>
+  </div>
+</div>
+<footer class="footer-institucional"><div class="footer-contenido"><div class="footer-info"><p><strong>Portal de Gestión Académica</strong></p><p>Administración de procesos académicos.</p></div><div class="footer-derechos"><p>&copy; 2026 Portal de Gestión Académica.</p></div></div></footer>
+</body>
+</html>

@@ -1,0 +1,75 @@
+/* ============================================================
+   entidades.css — acento visual de cada entidad académica.
+
+   Cada entidad define tres variables y los componentes las usan
+   (botón primario, icono, enlaces, foco de los campos):
+
+     --acento         color principal
+     --acento-fuerte  color para hover
+     --acento-suave   fondo del icono
+
+   El acento se activa con el atributo data-entity, que el <body>
+   ya trae en las páginas de módulo y que la rejilla de inicio
+   coloca en cada tarjeta de servicio.
+   ============================================================ */
+
+/* Acento por defecto cuando la página no es de una entidad. */
+:root {
+  --acento: var(--marino-claro);
+  --acento-fuerte: var(--marino);
+  --acento-suave: var(--fondo-suave);
+}
+
+[data-entity="cursoPeriodo"] {
+  --acento: #0f766e;
+  --acento-fuerte: #115e59;
+  --acento-suave: #f0fdfa;
+}
+
+[data-entity="estudiante"] {
+  --acento: #2563eb;
+  --acento-fuerte: #1d4ed8;
+  --acento-suave: #eff6ff;
+}
+
+[data-entity="facultad"] {
+  --acento: #7c3aed;
+  --acento-fuerte: #6d28d9;
+  --acento-suave: #f5f3ff;
+}
+
+[data-entity="formacionProfesor"] {
+  --acento: #b45309;
+  --acento-fuerte: #92400e;
+  --acento-suave: #fffbeb;
+}
+
+[data-entity="materia"] {
+  --acento: #0e7490;
+  --acento-fuerte: #155e75;
+  --acento-suave: #ecfeff;
+}
+
+[data-entity="periodoAcademico"] {
+  --acento: #4338ca;
+  --acento-fuerte: #3730a3;
+  --acento-suave: #eef2ff;
+}
+
+[data-entity="planEstudio"] {
+  --acento: #15803d;
+  --acento-fuerte: #166534;
+  --acento-suave: #f0fdf4;
+}
+
+[data-entity="profesor"] {
+  --acento: #be185d;
+  --acento-fuerte: #9d174d;
+  --acento-suave: #fdf2f8;
+}
+
+[data-entity="programa"] {
+  --acento: #c2410c;
+  --acento-fuerte: #9a3412;
+  --acento-suave: #fff7ed;
+}

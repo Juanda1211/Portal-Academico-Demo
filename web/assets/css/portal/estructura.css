@@ -1,0 +1,321 @@
+/* ============================================================
+   estructura.css — cascarón de todas las páginas:
+   cabecera, marca, navegación, desplegables y pie.
+   ============================================================ */
+
+/* ---------- Cabecera ---------- */
+
+.cabecera {
+  background: var(--marino);
+  color: #ffffff;
+}
+
+.cabecera__contenido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1rem;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.marca__escudo {
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radio);
+  object-fit: cover;
+}
+
+.marca__nombre {
+  display: block;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.marca__lema {
+  display: block;
+  font-size: 0.75rem;
+  color: #cbd5e1;
+}
+
+@media (min-width: 640px) {
+  .marca__nombre {
+    font-size: 1.125rem;
+  }
+
+  .marca__lema {
+    font-size: 0.875rem;
+  }
+}
+
+.cabecera__institucional {
+  display: none;
+  text-align: right;
+}
+
+.cabecera__institucional-sistema {
+  font-size: 0.75rem;
+  color: #cbd5e1;
+}
+
+.cabecera__institucional-titulo {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.boton-menu {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radio);
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color var(--transicion);
+}
+
+.boton-menu:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 768px) {
+  .cabecera__institucional {
+    display: block;
+  }
+
+  .boton-menu {
+    display: none;
+  }
+}
+
+/* ---------- Navegación ---------- */
+
+.navegacion {
+  display: none;
+  flex-direction: column;
+  gap: 0.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-block: 0.5rem;
+}
+
+/* La agrega JavaScript al pulsar el botón de menú en móvil. */
+.navegacion--abierta {
+  display: flex;
+}
+
+.navegacion__enlace {
+  border-radius: var(--radio);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  transition: background-color var(--transicion), color var(--transicion);
+}
+
+.navegacion__enlace:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .navegacion {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+/* Filete dorado bajo la cabecera. */
+.cabecera__filete {
+  height: 4px;
+  background: linear-gradient(to right, var(--dorado), rgba(214, 173, 96, 0.4), transparent);
+}
+
+/* ---------- Desplegables de la navegación ---------- */
+
+.desplegable {
+  position: relative;
+}
+
+.desplegable__disparador {
+  border: 0;
+  background: transparent;
+  border-radius: var(--radio);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  cursor: pointer;
+  transition: background-color var(--transicion), color var(--transicion);
+}
+
+.desplegable__disparador:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.desplegable__panel {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 20;
+  margin-top: 0.25rem;
+  width: 18rem;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-lg);
+  background: var(--superficie);
+  padding: 0.75rem;
+  color: var(--texto);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+}
+
+.desplegable__titulo {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--texto-tenue);
+}
+
+.desplegable__opciones {
+  display: flex;
+  flex-direction: column;
+  max-height: 18rem;
+  overflow-y: auto;
+}
+
+.desplegable__mensaje {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  color: var(--texto-tenue);
+}
+
+.desplegable__opcion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  border-radius: var(--radio);
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--texto-medio);
+  transition: background-color var(--transicion);
+}
+
+.desplegable__opcion:hover {
+  background: var(--fondo-suave);
+}
+
+.desplegable__opcion-nombre {
+  min-width: 0;
+}
+
+.desplegable__opcion-nota {
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--marino-claro);
+}
+
+.desplegable__grupo {
+  margin-top: 0.5rem;
+}
+
+.desplegable__grupo:first-child {
+  margin-top: 0;
+}
+
+.desplegable__grupo-titulo {
+  padding: 0 0.5rem 0.25rem;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #94a3b8;
+}
+
+.desplegable__grupo-item {
+  border-radius: var(--radio);
+  padding: 0.375rem 0.5rem;
+  font-size: 0.875rem;
+  color: var(--texto-medio);
+}
+
+.desplegable__pie {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 0.5rem;
+}
+
+.desplegable__pie-enlace {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--texto-medio);
+}
+
+.desplegable__pie-enlace:hover {
+  text-decoration: underline;
+}
+
+.desplegable__pie-enlace--destacado {
+  font-weight: 700;
+  color: var(--marino-claro);
+}
+
+/* ---------- Pie ---------- */
+
+.pie {
+  margin-top: 4rem;
+  background: var(--marino);
+  color: #cbd5e1;
+}
+
+.pie__contenido {
+  display: grid;
+  gap: 1.25rem;
+  padding-block: 2rem;
+}
+
+.pie__titulo {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.pie__texto {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.pie__lateral {
+  font-size: 0.875rem;
+}
+
+.pie__creditos {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 1.25rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+@media (min-width: 640px) {
+  .pie__contenido {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pie__lateral {
+    text-align: right;
+  }
+}

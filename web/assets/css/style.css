@@ -1,0 +1,267 @@
+/* ============================================================
+   style.css — capa final de las vistas CRUD del portal.
+
+   Se carga al final de cada módulo, después de legacy-theme.css,
+   para rematar el acabado sin reescribir los estilos base.
+   ============================================================ */
+
+/* ---------- Fondo general ---------- */
+
+body:has(.contenedor-principal) {
+  background: #f8fafc;
+}
+
+.encabezado-tabla .subtitulo-tabla {
+  max-width: 720px;
+}
+
+/* ---------- Barra de herramientas del listado ---------- */
+
+.tabla-toolbar {
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 0.75rem;
+}
+
+/* El buscador se queda con el espacio libre de la fila. */
+.tabla-toolbar .busqueda-box {
+  flex: 1 1 20rem;
+}
+
+/* facultad.html y periodoAcademico.html dejan este contenedor vacío. */
+.tabla-toolbar .busqueda-box:empty {
+  display: none;
+}
+
+/* legacy-theme.css aplica width:100% y empujaba el botón a otra línea. */
+.busqueda-box .input-busqueda {
+  flex: 1 1 11rem;
+  width: auto;
+  min-width: 0;
+}
+
+.tabla-toolbar .filtros-box {
+  flex: 0 1 auto;
+}
+
+/* cursoProfesor.html agrupa varios filtros dentro del buscador: los
+   reparte en fila en lugar de apilarlos a ancho completo. */
+.busqueda-box > .select-filtro {
+  flex: 0 1 auto;
+  width: auto;
+  min-width: 11rem;
+}
+
+.tabla-toolbar .acciones-superiores {
+  margin-left: auto;
+  justify-content: flex-end;
+}
+
+.tabla-toolbar .busqueda-nombre-box {
+  flex: 0 1 17rem;
+  margin-left: 0;
+}
+
+.busqueda-nombre-box .input-busqueda-nombre {
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+}
+
+.tabla-toolbar button {
+  white-space: nowrap;
+}
+
+@media (max-width: 680px) {
+  .tabla-toolbar {
+    align-items: stretch;
+  }
+
+  .tabla-toolbar .busqueda-box,
+  .tabla-toolbar .filtros-box,
+  .tabla-toolbar .acciones-superiores,
+  .tabla-toolbar .busqueda-nombre-box {
+    flex: 1 1 100%;
+    margin-left: 0;
+  }
+
+  .tabla-toolbar .acciones-superiores {
+    justify-content: flex-start;
+  }
+}
+
+/* ---------- Contención de la tabla ---------- */
+
+/* En pantallas pequeñas la tabla se desplaza dentro de la tarjeta
+   en lugar de desbordar la página completa. */
+.tarjeta-tabla {
+  overflow-x: auto;
+}
+
+tbody tr {
+  cursor: pointer;
+}
+
+/* Las filas de mensaje (cargando, error, sin resultados) no son seleccionables. */
+tbody tr:has(td[colspan]) {
+  cursor: default;
+}
+
+tr.fila-seleccionada {
+  background: #eaf1f2 !important;
+  box-shadow: inset 3px 0 var(--marino-claro);
+}
+
+/* ---------- Botones de acción ---------- */
+
+.btn {
+  transition: background-color var(--transicion), border-color var(--transicion),
+    color var(--transicion), box-shadow var(--transicion), transform var(--transicion);
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px -8px rgba(15, 36, 56, 0.55);
+}
+
+/* Retroalimentación al presionar: el botón cede y pierde la elevación. */
+.btn:active:not(:disabled) {
+  transform: translateY(1px) scale(0.99);
+  box-shadow: none;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--marino-claro);
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Botones de cada fila de la tabla. */
+.btn-tabla {
+  transition: background-color var(--transicion), border-color var(--transicion),
+    color var(--transicion), transform var(--transicion);
+}
+
+.btn-tabla:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.btn-tabla:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.btn-tabla:focus-visible {
+  outline: 2px solid var(--marino-claro);
+  outline-offset: 2px;
+}
+
+.btn-tabla:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn-suspender {
+  color: #9a3412;
+  border-color: #fed7aa;
+}
+
+.btn-reactivar {
+  color: #166534;
+  border-color: #bbf7d0;
+}
+
+/* ---------- Insignias de estado ---------- */
+
+.badge {
+  gap: 0.35rem;
+  letter-spacing: 0.02em;
+}
+
+.badge::before {
+  content: "";
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* ---------- Mensajes de error del formulario ---------- */
+
+.mensaje-error:not(:empty) {
+  border: 1px solid #fecdd3;
+  border-radius: var(--radio);
+  background: #fff1f2;
+  padding: 0.65rem 0.85rem;
+}
+
+/* Texto de apoyo bajo un campo del formulario. */
+.ayuda-campo {
+  margin: 0.35rem 0 0;
+  font-size: 0.8rem;
+  color: var(--texto-suave, #5b6b7c);
+}
+
+.ayuda-campo:empty {
+  display: none;
+}
+
+.ayuda-campo[data-estado="excedido"] {
+  color: #b91c1c;
+  font-weight: 600;
+}
+
+/* ---------- Pie institucional ---------- */
+
+.footer-institucional {
+  border-top: 1px solid rgba(214, 173, 96, 0.45);
+  background: linear-gradient(180deg, var(--marino) 0%, var(--marino-oscuro) 100%);
+  font-weight: 400;
+}
+
+.footer-institucional strong {
+  font-weight: 700;
+}
+
+/* ---------- Modales ---------- */
+
+/* Evita que el documento se desplace detrás del modal abierto. */
+body:has(.modal-overlay.activo) {
+  overflow: hidden;
+}
+
+.modal-overlay.activo {
+  animation: modal-fondo 160ms ease-out;
+}
+
+.modal-contenedor,
+.modal-centrado {
+  animation: modal-panel 200ms cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+
+@keyframes modal-fondo {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-panel {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

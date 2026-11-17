@@ -1,0 +1,11 @@
+
+/* Adaptación de componentes de las páginas Java a la identidad visual original. */
+.servicios__rejilla { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1.1rem; }
+.servicio-card { display:flex; flex-direction:column; align-items:flex-start; gap:.65rem; padding:1.4rem; background:#fff; border:1px solid var(--borde); border-top:3px solid var(--dorado); border-radius:var(--radio-lg); box-shadow:var(--sombra); transition:transform var(--transicion),box-shadow var(--transicion); }
+.servicio-card:hover { transform:translateY(-3px); box-shadow:var(--sombra-alta); }
+.servicio-card__icono { display:grid; place-items:center; width:2.5rem; height:2.5rem; border-radius:var(--radio); background:var(--fondo-suave); color:var(--marino-claro); }
+.servicio-card__icono svg { width:1.35rem; height:1.35rem; fill:none; stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; stroke-width:1.7; }
+.servicio-card h3 { color:var(--marino); font-size:1.1rem; } .servicio-card p { color:var(--texto-medio); }
+.servicio-card > .servicio-card__icono { margin-bottom:.15rem; }
+.servicio-card > span:last-child { margin-top:auto; color:var(--marino-claro); font-weight:700; }
+@media(max-width:767px){ .navegacion { display:none; flex-direction:column; align-items:stretch; padding-bottom:1rem; } .navegacion--abierta { display:flex !important; } }

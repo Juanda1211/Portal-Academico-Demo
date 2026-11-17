@@ -1,0 +1,22 @@
+# Build output
+build/
+dist/
+out/
+
+# IDE / editor
+.idea/
+*.iml
+nbproject/private/
+.vscode/
+
+# OS noise
+.DS_Store
+
+# Tool scratch
+.playwright-mcp/
+.atl/
+
+# Java artifacts
+*.class
+*.war
+*.jar.tmp

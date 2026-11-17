@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/assets/js/comun.js" defer></script>
+    <script src="/assets/js/periodoAcademico.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;800&display=swap" rel="stylesheet">
+    <title>Periodo Académico</title>
+  <link rel="icon" type="image/png" href="/assets/img/Escudo_unimag_sm.png">
+
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/entidades.css">
+    <link rel="stylesheet" href="/assets/css/estructura.css">
+    <link rel="stylesheet" href="/assets/css/componentes.css">
+    <link rel="stylesheet" href="/assets/css/paginas/formulario.css">
+    <link rel="stylesheet" href="/assets/css/paginas/lista.css">
+    <link rel="stylesheet" href="/assets/css/adaptacion-proyecto-java.css">
+  <!-- Compatibilidad con las clases HTML originales de las vistas CRUD. -->
+  <link rel="stylesheet" href="/assets/css/legacy-theme.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <header class="cabecera">
+  <div class="contenedor cabecera__contenido">
+    <a class="marca" href="index.html">
+      <img class="marca__escudo" src="/assets/img/Escudo_unimag_sm.png" alt="Escudo de la Universidad del Magdalena">
+      <span><span class="marca__nombre">UNIMAG</span><span class="marca__lema">Portal de Gestión Académica</span></span>
+    </a>
+    <div class="cabecera__institucional"><p class="cabecera__institucional-sistema">Sistema institucional</p><p class="cabecera__institucional-titulo">Gestión de información académica</p></div>
+    <button id="boton-menu" type="button" class="boton-menu" aria-label="Abrir menú" aria-controls="navegacion-principal" aria-expanded="false">☰</button>
+  </div>
+  <nav id="navegacion-principal" class="contenedor navegacion">
+      <div class="navegacion__fila">
+        <a class="navegacion__enlace" href="index.html">Inicio</a>
+        <a class="navegacion__enlace" href="facultad.html">Facultades</a>
+        <a class="navegacion__enlace" href="programa.html">Programas</a>
+        <a class="navegacion__enlace" href="estudiantes.html">Estudiantes</a>
+        <a class="navegacion__enlace" href="profesor.html">Profesores</a>
+        <a class="navegacion__enlace" href="materia.html">Materias</a>
+        <a class="navegacion__enlace" href="periodoAcademico.html">Periodos</a>
+      </div>
+      <div class="navegacion__fila">
+        <a class="navegacion__enlace" href="cursoPeriodo.html">Cursos</a>
+        <a class="navegacion__enlace" href="cursoProfesor.html">Asignación docente</a>
+        <a class="navegacion__enlace" href="planEstudio.html">Planes de estudio</a>
+        <a class="navegacion__enlace" href="planMateria.html">Plan y materias</a>
+        <a class="navegacion__enlace" href="inscripciones.html">Inscripciones</a>
+        <a class="navegacion__enlace" href="monitorias.html">Monitorías</a>
+        <a class="navegacion__enlace" href="formacionProfesor.html">Formación docente</a>
+      </div>
+    </nav><div class="cabecera__filete"></div>
+</header>
+
+<main class="contenedor-principal">
+        <section class="tarjeta-tabla">
+        <!-- ENCABEZADO DEL MÓDULO -->
+            <div class="encabezado-tabla">
+                <h2 class="listar-Materias">Sistemas de Periodos Académicos</h2>
+                <p class="subtitulo-tabla">Consulta y administra el listado general de periodos académicos registrados.</p>
+            </div>
+            <!-- BARRA DE BÚSQUEDA Y BOTONES DE ACCIÓN SUPERIORES -->
+            <div class="tabla-toolbar">
+                <div class="busqueda-box"></div>
+                <div class="acciones-superiores">
+                    <button class="btn btn-primario" id="btnRegistrar">+ Registrar Periodo</button>
+                    <button class="btn btn-secundario" id="btnActualizar">Actualizar Selección</button>
+                </div>
+            
+                <div class="busqueda-nombre-box">
+                    <label class="sr-only" for="buscarPorNombre">Buscar en el listado por nombre</label>
+                    <input type="search" id="buscarPorNombre" class="input-busqueda input-busqueda-nombre" placeholder="Buscar por nombre..." autocomplete="off" aria-label="Buscar registros por nombre">
+                </div>
+            </div>
+            <!-- TABLA -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cod</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpoTablaPeriodoAcademico">
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- VENTANA EMERGENTE (MODAL) -->
+    <div class="modal-overlay" id="modalPeriodoAcademico">
+        <div class="modal-contenedor">
+
+    <!-- ENCABEZADO DEL MODAL (TÍTULO Y BOTÓN DE CERRAR) -->
+            <div class="modal-header">
+                <h3 id="modalTitulo">Registrar Nuevo Periodo Académico</h3>
+                <button type="button" class="btn-cerrar" onclick="cerrarModal()">&times;</button>
+            </div>
+
+            <form id="form">
+
+                <div id="mensajeError" class="mensaje-error"></div>
+
+                    <div class="campo-group">
+                        <label for="nombrePeriodoAcademico">Nombre del periodo:</label>
+                        <input type="text" id="nombrePeriodoAcademico" placeholder="Ej. 2026-1">
+                    </div>
+
+      <!-- BOTONES DE ACCIÓN -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-cancelar" onclick="cerrarModal()">Cancelar</button>
+                    <button type="button" class="btn btn-primario" onclick="registrarPeriodoAcademico()">Guardar periodo</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+    <!-- FOOTER INSTITUCIONAL -->
+    <footer class="footer-institucional">
+        <div class="footer-contenido">
+            <div class="footer-info"> 
+                <p><strong>Portal de Gestión Académica</strong></p> 
+                <p>Una plataforma para la administración de procesos académicos.</p> 
+                <p>Organización, eficiencia y gestión en un solo lugar.</p> 
+            </div> 
+            <div class="footer-derechos"> 
+                <p>&copy; 2026 Portal de Gestión Académica.</p> 
+                 
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

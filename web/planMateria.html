@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Materias por plan de estudio | Portal Académico</title>
+  <link rel="icon" type="image/png" href="/assets/img/Escudo_unimag_sm.png">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/entidades.css">
+  <link rel="stylesheet" href="/assets/css/estructura.css">
+  <link rel="stylesheet" href="/assets/css/componentes.css">
+  <link rel="stylesheet" href="/assets/css/paginas/formulario.css">
+  <link rel="stylesheet" href="/assets/css/paginas/lista.css">
+  <link rel="stylesheet" href="/assets/css/adaptacion-proyecto-java.css">
+  <!-- Compatibilidad con las clases HTML originales de las vistas CRUD. -->
+  <link rel="stylesheet" href="/assets/css/legacy-theme.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/comun.js" defer></script>
+  <script src="/assets/js/planMateria.js" defer></script>
+</head>
+<body>
+<header class="cabecera">
+  <div class="contenedor cabecera__contenido">
+    <a class="marca" href="index.html"><img class="marca__escudo" src="/assets/img/Escudo_unimag_sm.png" alt="Escudo Universidad del Magdalena"><span><span class="marca__nombre">UNIMAG</span><span class="marca__lema">Portal de Gestión Académica</span></span></a>
+    <div class="cabecera__institucional"><p class="cabecera__institucional-sistema">Sistema institucional</p><p class="cabecera__institucional-titulo">Gestión de información académica</p></div>
+    <button id="boton-menu" type="button" class="boton-menu" aria-label="Abrir menú" aria-controls="navegacion-principal" aria-expanded="false">☰</button>
+  </div>
+  <nav id="navegacion-principal" class="contenedor navegacion">
+      <div class="navegacion__fila">
+        <a class="navegacion__enlace" href="index.html">Inicio</a>
+        <a class="navegacion__enlace" href="facultad.html">Facultades</a>
+        <a class="navegacion__enlace" href="programa.html">Programas</a>
+        <a class="navegacion__enlace" href="estudiantes.html">Estudiantes</a>
+        <a class="navegacion__enlace" href="profesor.html">Profesores</a>
+        <a class="navegacion__enlace" href="materia.html">Materias</a>
+        <a class="navegacion__enlace" href="periodoAcademico.html">Periodos</a>
+      </div>
+      <div class="navegacion__fila">
+        <a class="navegacion__enlace" href="cursoPeriodo.html">Cursos</a>
+        <a class="navegacion__enlace" href="cursoProfesor.html">Asignación docente</a>
+        <a class="navegacion__enlace" href="planEstudio.html">Planes de estudio</a>
+        <a class="navegacion__enlace" href="planMateria.html" aria-current="page">Plan y materias</a>
+        <a class="navegacion__enlace" href="inscripciones.html">Inscripciones</a>
+        <a class="navegacion__enlace" href="monitorias.html">Monitorías</a>
+        <a class="navegacion__enlace" href="formacionProfesor.html">Formación docente</a>
+      </div>
+    </nav><div class="cabecera__filete"></div>
+</header>
+<main class="contenedor-principal">
+  <section class="tarjeta-tabla">
+    <div class="encabezado-tabla"><h2 class="listar-Materias">Materias por plan de estudio</h2><p class="subtitulo-tabla">Asigna materias a un plan, ubícalas en su semestre y orden, o quítalas del plan.</p></div>
+    <div class="tabla-toolbar">
+      <div class="busqueda-box">
+        <select id="filtroPlan" class="select-filtro" aria-label="Filtrar por plan"><option value="">Todos los planes</option></select>
+        <select id="filtroMateria" class="select-filtro" aria-label="Filtrar por materia"><option value="">Todas las materias</option></select>
+        <button type="button" class="btn btn-buscar" id="btnFiltrar">Filtrar</button>
+        <button type="button" class="btn btn-secundario" id="btnLimpiar">Limpiar</button>
+      </div>
+      <div class="acciones-superiores"><button class="btn btn-primario" type="button" id="btnRegistrar">+ Asignar materia</button></div>
+      <div class="busqueda-nombre-box">
+        <label class="sr-only" for="buscarPorNombre">Buscar en el listado por nombre</label>
+        <input type="search" id="buscarPorNombre" class="input-busqueda input-busqueda-nombre" placeholder="Buscar por nombre..." autocomplete="off" aria-label="Buscar registros por nombre">
+      </div>
+    </div>
+    <table>
+      <thead><tr><th>Plan</th><th>Programa</th><th>Materia</th><th>Semestre</th><th>Orden</th><th>Acciones</th></tr></thead>
+      <tbody id="cuerpoTablaPlanMateria"><tr><td colspan="6" style="text-align:center;padding:20px">Seleccione un plan o una materia para consultar las asignaciones.</td></tr></tbody>
+    </table>
+  </section>
+</main>
+<div class="modal-overlay" id="modalPlanMateria">
+  <div class="modal-contenedor">
+    <div class="modal-header"><h3 id="modalTitulo">Asignar materia a un plan</h3><button type="button" class="btn-cerrar" id="btnCerrarModal" aria-label="Cerrar">&times;</button></div>
+    <form id="formPlanMateria">
+      <div id="mensajeError" class="mensaje-error" role="alert"></div>
+      <div class="campo-group"><label for="planPlanMateria">Plan de estudio:</label><select id="planPlanMateria" required><option value="">Seleccione un plan…</option></select></div>
+      <div class="campo-group"><label for="materiaPlanMateria">Materia:</label><select id="materiaPlanMateria" required><option value="">Seleccione una materia…</option></select></div>
+      <div class="campo-group"><label for="semestrePlanMateria">Semestre:</label><input type="number" id="semestrePlanMateria" min="1" step="1" required></div>
+      <div class="campo-group"><label for="ordenPlanMateria">Orden dentro del semestre:</label><input type="number" id="ordenPlanMateria" min="1" step="1" required></div>
+      <div class="modal-footer"><button type="button" class="btn btn-cancelar" id="btnCancelar">Cancelar</button><button type="submit" class="btn btn-primario" id="btnGuardar">Guardar asignación</button></div>
+    </form>
+  </div>
+</div>
+<footer class="footer-institucional"><div class="footer-contenido"><div class="footer-info"><p><strong>Portal de Gestión Académica</strong></p><p>Administración de procesos académicos.</p></div><div class="footer-derechos"><p>&copy; 2026 Portal de Gestión Académica.</p></div></div></footer>
+</body>
+</html>

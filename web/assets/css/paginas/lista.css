@@ -1,0 +1,95 @@
+/* ============================================================
+   paginas/lista.css — estilos exclusivos de las vistas de listado.
+   ============================================================ */
+
+.listado {
+  overflow: hidden;
+}
+
+.listado__cabecera {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem;
+}
+
+.listado__titulo {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--marino);
+}
+
+.listado__contador {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--texto-tenue);
+}
+
+.listado__contador-enlace {
+  font-weight: 600;
+  color: var(--acento);
+}
+
+.listado__contador-enlace:hover {
+  text-decoration: underline;
+}
+
+.listado__herramientas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .listado__herramientas {
+    flex-direction: row;
+  }
+
+  .listado__buscador {
+    width: 14rem;
+  }
+
+  .listado__filtro {
+    width: 11rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .listado__cabecera {
+    flex-direction: row;
+    align-items: center;
+    padding: 1.5rem;
+  }
+}
+
+/* ---------- Acciones de cada fila ---------- */
+
+.tabla-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.enlace-accion {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--acento);
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.enlace-accion:hover {
+  text-decoration: underline;
+}
+
+.enlace-accion--peligro {
+  color: #be123c;
+}
+
+.enlace-accion--aviso {
+  color: #b45309;
+}

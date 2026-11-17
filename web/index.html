@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portal de gestión académica universitaria">
+  <title>Inicio | Portal Académico</title>
+  <link rel="icon" type="image/png" href="/assets/img/Escudo_unimag_sm.png">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/entidades.css">
+  <link rel="stylesheet" href="assets/css/estructura.css">
+  <link rel="stylesheet" href="assets/css/componentes.css">
+  <link rel="stylesheet" href="assets/css/paginas/inicio.css">
+  <link rel="stylesheet" href="assets/css/adaptacion-proyecto-java.css">
+</head>
+<body>
+  <header class="cabecera">
+    <div class="contenedor cabecera__contenido">
+      <a class="marca" href="index.html">
+        <img class="marca__escudo" src="assets/img/Escudo_unimag_sm.png" alt="Logo de la Universidad de Magdalena">
+        <span>
+          <span class="marca__nombre">UNIMAG</span>
+          <span class="marca__lema">Portal de Gestión Académica</span>
+        </span>
+      </a>
+      <div class="cabecera__institucional">
+        <p class="cabecera__institucional-sistema">Sistema institucional</p>
+        <p class="cabecera__institucional-titulo">Gestión de información académica</p>
+      </div>
+      <button id="boton-menu" type="button" class="boton-menu" aria-label="Abrir menú" aria-controls="navegacion-principal" aria-expanded="false">☰</button>
+    </div>
+    <nav id="navegacion-principal" class="contenedor navegacion">
+        <div class="navegacion__fila">
+          <a class="navegacion__enlace" href="index.html">Inicio</a>
+          <a class="navegacion__enlace" href="facultad.html">Facultades</a>
+          <a class="navegacion__enlace" href="programa.html">Programas</a>
+          <a class="navegacion__enlace" href="estudiantes.html">Estudiantes</a>
+          <a class="navegacion__enlace" href="profesor.html">Profesores</a>
+          <a class="navegacion__enlace" href="materia.html">Materias</a>
+          <a class="navegacion__enlace" href="periodoAcademico.html">Periodos</a>
+        </div>
+        <div class="navegacion__fila">
+          <a class="navegacion__enlace" href="cursoPeriodo.html">Cursos</a>
+          <a class="navegacion__enlace" href="cursoProfesor.html">Asignación docente</a>
+          <a class="navegacion__enlace" href="planEstudio.html">Planes de estudio</a>
+          <a class="navegacion__enlace" href="planMateria.html">Plan y materias</a>
+          <a class="navegacion__enlace" href="inscripciones.html">Inscripciones</a>
+          <a class="navegacion__enlace" href="monitorias.html">Monitorías</a>
+          <a class="navegacion__enlace" href="formacionProfesor.html">Formación docente</a>
+        </div>
+      </nav>
+    <div class="cabecera__filete"></div>
+  </header>
+
+  <main class="pagina">
+    <section class="hero">
+      <div class="contenedor hero__contenido">
+        <div>
+          <p class="hero__etiqueta">Portal académico</p>
+          <h1 class="hero__titulo">La gestión académica al servicio de la educación.</h1>
+          <p class="hero__texto">Un espacio institucional para organizar lo necesario desde un mismo portal.</p>
+          <div class="hero__acciones">
+            <a class="boton boton--dorado" href="#servicios">Explorar servicios →</a>
+            <a class="boton boton--secundario" href="cursoPeriodo.html">Consultar cursos</a>
+          </div>
+        </div>
+        <div>
+          <img class="hero__imagen" src="assets/img/Campus_unimag_sm.png" alt="Edificio universitario y entorno académico">
+        </div>
+      </div>
+    </section>
+
+    <section class="proposito" id="institucion">
+      <div class="contenedor proposito__contenido">
+        <div>
+          <p class="etiqueta-seccion">Nuestro propósito</p>
+          <p class="proposito__titulo">Apoyar la gestión institucional</p>
+        </div>
+        <div class="proposito__texto">Centralizar la consulta de información académica y facilitar tareas administrativas comunes.</div>
+        <div class="proposito__texto">Una interfaz clara, accesible y coherente para cada entidad del sistema.</div>
+      </div>
+    </section>
+
+    <section class="contenedor servicios" id="servicios">
+      <div class="servicios__encabezado">
+        <p class="etiqueta-seccion">Servicios académicos</p>
+        <h2 class="servicios__titulo">Explora las áreas de gestión</h2>
+        <p class="servicios__texto">Selecciona un área para consultar sus registros, crear nuevos elementos o actualizar la información disponible.</p>
+      </div>
+      <div class="servicios__rejilla">
+        <a class="servicio-card" href="facultad.html"><span class="servicio-card__icono" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M3 21h18M5 21V9h14v12M8 9V5h8v4M8 13h2m4 0h2m-8 4h2m4 0h2"/></svg></span><h3>Facultades</h3><p>Consulta y administra las facultades.</p><span>Ingresar →</span></a>
+        <a class="servicio-card" href="programa.html"><span class="servicio-card__icono" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5v-16ZM4 5.5v16M8 7h8m-8 4h8"/></svg></span><h3>Programas académicos</h3><p>Gestiona los programas de formación.</p><span>Ingresar →</span></a>
+        <a class="servicio-card" href="estudiantes.html"><span class="servicio-card__icono" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-7 9a7 7 0 0 1 14 0M18 5v6m3-3h-6"/></svg></span><h3>Estudiantes</h3><p>Consulta y administra estudiantes.</p><span>Ingresar →</span></a>
+        <a class="servicio-card" href="profesor.html"><span class="servicio-card__icono" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m3 10 9-5 9 5-9 5-9-5Zm4 2.2V16c2.8 2.5 7.2 2.5 10 0v-3.8M21 10v6"/></svg></span><h3>Profesores</h3><p>Gestiona la información docente.</p><span>Ingresar →</span></a>
+        <a class="servicio-card" href="materia.html"><span class="servicio-card__icono" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5v-16ZM4 5.5v16M8 7h8m-8 4h6"/></svg></span><h3>Materias</h3><p>Organiza las asignaturas.</p><span>Ingresar →</span></a>
+        <a class="servicio-card" href="periodoAcademico.html"><span class="servicio-card__icono" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4m8-4v4M4 10h16m-9 4h2m2 0h2m-6 3h2"/></svg></span><h3>Periodos académicos</h3><p>Administra los periodos académicos.</p><span>Ingresar →</span></a>
+        <a class="servicio-card" href="cursoPeriodo.html"><span class="servicio-card__icono" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 4h16v16H4zM8 8h8M8 12h8M8 16h5"/></svg></span><h3>Cursos por periodo</h3><p>Consulta los cursos ofertados.</p><span>Ingresar →</span></a>
+        <a class="servicio-card" href="cursoProfesor.html"><span class="servicio-card__icono" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 5h16v14H4zM8 9h8M8 13h4m4 0h0M8 17h3"/></svg></span><h3>Asignación docente</h3><p>Asigna profesores a los cursos de cada periodo.</p><span>Ingresar →</span></a>
+        <a class="servicio-card" href="planEstudio.html"><span class="servicio-card__icono" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5"/></svg></span><h3>Planes de estudio</h3><p>Consulta y administra planes.</p><span>Ingresar →</span></a>
+        <a class="servicio-card" href="planMateria.html"><span class="servicio-card__icono" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 4h16v16H4zM8 8h5m-5 4h8m-8 4h8"/></svg></span><h3>Plan y materias</h3><p>Asigna materias a cada plan de estudio.</p><span>Ingresar →</span></a>
+        <a class="servicio-card" href="inscripciones.html"><span class="servicio-card__icono" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-7 9a7 7 0 0 1 14 0M9 5l2 2 4-4"/></svg></span><h3>Inscripciones</h3><p>Inscribe estudiantes en cursos por periodo.</p><span>Ingresar →</span></a>
+        <a class="servicio-card" href="monitorias.html"><span class="servicio-card__icono" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 3 3 8l9 5 9-5-9-5Zm-5 8v5c2.8 2.5 7.2 2.5 10 0v-5M21 8v6"/></svg></span><h3>Monitorías</h3><p>Asigna monitores y evalúa su desempeño.</p><span>Ingresar →</span></a>
+        <a class="servicio-card" href="formacionProfesor.html"><span class="servicio-card__icono" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 3 3 8l9 5 9-5-9-5Zm-5 8v5c2.8 2.5 7.2 2.5 10 0v-5M21 8v6"/></svg></span><h3>Formación docente</h3><p>Gestiona formación de profesores.</p><span>Ingresar →</span></a>
+      </div>
+    </section>
+
+    <section class="cierre">
+      <div class="contenedor cierre__contenido">
+        <div>
+          <p class="etiqueta-seccion">Gestión responsable</p>
+          <h2 class="cierre__titulo">Información clara para una comunidad académica conectada.</h2>
+          <p class="cierre__texto">Los módulos están organizados según las necesidades de cada entidad y sus operaciones específicas.</p>
+        </div>
+        <a class="boton boton--dorado" href="estudiantes.html">Consultar estudiantes</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie__contenido">
+      <div>
+        <p class="pie__titulo">Portal de Gestión Académica</p>
+        <p class="pie__texto">Una herramienta para organizar y consultar la información académica institucional.</p>
+      </div>
+    </div>
+    <div class="pie__creditos">Portal de Gestión Académica</div>
+  </footer>
+
+  <script src="assets/js/comun.js" defer></script>
+</body>
+</html>
