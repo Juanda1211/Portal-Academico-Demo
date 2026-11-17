@@ -68,3 +68,20 @@ Para el detalle de reglas, estados y endpoints, ver [`GUIA_DEFENSA.md`](GUIA_DEF
 
 ## Diagrama de clases
 Para regenerarlo, ejecuta `edu.unimag.DiagramaClases` desde la raíz del proyecto. Escribe el resultado en `src/diagramaBlaster.puml`.
+
+## Despliegue en la nube (Docker)
+
+GitHub solo guarda el código; no ejecuta Java. Para tener la app en línea, conecta este repositorio a un hosting con soporte para Docker (Render, Railway, Fly.io).
+
+1. Sube el proyecto a GitHub (`git remote add origin <url>` y `git push -u origin main`).
+2. En el hosting crea un **Web Service** desde el repositorio y elige el entorno **Docker**; usará el `Dockerfile` de la raíz.
+3. El servidor lee el puerto de la variable de entorno `PORT` (por defecto 8080). Un argumento de línea de comandos tiene prioridad.
+
+Probar el contenedor en local:
+
+```bash
+docker build -t portal-academico .
+docker run --rm -p 8080:8080 portal-academico
+```
+
+**Persistencia:** los datos viven en `misPersistencias/` dentro del contenedor. En planes gratuitos el disco se reinicia con cada despliegue o reinicio y vuelven los datos iniciales del repositorio. Para conservar los cambios hay que montar un volumen persistente en `/app/misPersistencias`.

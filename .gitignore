@@ -20,3 +20,6 @@ nbproject/private/
 *.class
 *.war
 *.jar.tmp
+
+# Editor swap files
+*.swp

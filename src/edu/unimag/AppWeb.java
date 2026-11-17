@@ -74,7 +74,12 @@ public class AppWeb {
 
         try {
 
-            int puerto = args.length > 0 ? Integer.parseInt(args[0]) : PUERTO_PREDETERMINADO;
+            String puertoEntorno = System.getenv("PORT");
+            int puerto = args.length > 0
+                    ? Integer.parseInt(args[0])
+                    : (puertoEntorno != null && !puertoEntorno.isBlank()
+                            ? Integer.parseInt(puertoEntorno.trim())
+                            : PUERTO_PREDETERMINADO);
 
             // NIVEL 1: módulos independientes.
             ConfiguracionModuloProfesor configProfesor = new ConfiguracionModuloProfesor();

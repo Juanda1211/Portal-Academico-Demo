@@ -1,0 +1,14 @@
+.git
+.idea
+.opencode
+.playwright-mcp
+.atl
+build
+dist
+out
+nbproject
+test
+*.iml
+*.class
+.DS_Store
+*.md
